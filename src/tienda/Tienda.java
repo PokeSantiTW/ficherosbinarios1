@@ -89,11 +89,11 @@ public class Tienda {
 		File f = new File(ruta);
 		
 		if (f.exists()) {
-			System.out.println("Se ha encontrado un archivo tienda.dat, se ha leído correctamente.");
+			System.out.println("Se ha encontrado un archivo tienda.dat, se ha leído correctamente.\n\n");
 			return true;
 		} else {
 			f.createNewFile();
-			System.out.println("No se ha encontrado un archivo tienda.dat, se ha creado uno nuevo.");
+			System.out.println("No se ha encontrado un archivo tienda.dat, se ha creado uno nuevo.\n\n");
 			return false;
 		}
 		

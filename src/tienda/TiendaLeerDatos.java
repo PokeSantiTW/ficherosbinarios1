@@ -43,11 +43,19 @@ public class TiendaLeerDatos {
 			System.out.println("------ PRENDA " + contador + " ------");
 			System.out.println("Tipo: " + p.getTipo());
 			System.out.println("Talla: " + p.getTalla());
-			System.out.println("---------------------");
+			System.out.println("Precio: " + p.getPrecio() + "€");
+			System.out.println("Color: " + p.getColor());
+			if (p.isDisponible()) {
+				System.out.println("Disponible: Sí");
+			} else {
+				System.out.println("Disponible: No");
+			}
+			System.out.println("----------------------");
 			
 			contador++;
 			
 		}
+		System.out.println("\n");
 		
 	}
 

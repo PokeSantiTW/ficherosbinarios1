@@ -31,6 +31,8 @@ public class TiendaGuardarDatos {
 		FileOutputStream fos = new FileOutputStream(ruta);
 		ObjectOutputStream oos = new ObjectOutputStream(fos);
 		
+		// Es necesario saber que cuando añades algo nuevo al .dat se borra todo lo anterior. Por eso usamos el ArrayList para guardar y leer todo.
+		// Cuando metamos nueva información al .dat, añadimos todo el contenido del ArrayList al .dat recorriéndolo con un for each.
 		for (Prenda p : arrayPrenda) {
 			oos.writeObject(p);
 		}

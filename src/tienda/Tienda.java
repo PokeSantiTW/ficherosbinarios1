@@ -9,36 +9,25 @@ public class Tienda {
 
 	public static void main(String[] args) throws IOException, ClassNotFoundException {
 		
+		// -------------------------------
 		// INICIO PROGRAMA
 		System.out.println("---------- BIENVENIDO/A A PRIMARK ----------");
-		String rutaBinario = pedirRuta() + "\\tienda.dat";
+		String rutaBinario = pedirRuta() + "\\tienda.dat"; // A la ruta de la carpeta, que se ha pedido en el método pedirRuta(), se le añade "tienda.dat". Será el archivo por defecto.
 		
 		
 		ArrayList<Prenda> arrayPrenda = new ArrayList<>();
 		
 		if (comprobarArchivoTienda(rutaBinario)) {
-			arrayPrenda = TiendaLeerDatos.arrayListInicial(rutaBinario);
+			arrayPrenda = TiendaLeerDatos.arrayListInicial(rutaBinario); // Traerá todo el contenido de tienda.dat y lo añade al ArrayList.
 		}
 		
-//		FileOutputStream fos = new FileOutputStream(rutaBinario);
-//		ObjectOutputStream oos = new ObjectOutputStream(fos);
-//		
-//		FileInputStream fentrada = new FileInputStream(rutaBinario);
-//		ObjectInputStream leerDatos = new ObjectInputStream(fentrada);
-		
-//		if (!ficheroBinario.exists()) {
-//			System.out.println("El archivo de " + rutaBinario + " ha sido leído correctamente.");
-//		} else {
-//			ficheroBinario.createNewFile();
-//			System.out.println("El archivo no existía, se ha creado uno nuevo en la ruta " + rutaBinario);
-//		}
+		// A partir de ahora, tenemos todo el contenido del .dat en el ArrayList "arrayPrenda". No hace falta trabajar directamente con el .dat.
+		// Si trabajamos con el .dat, será para añadir contenido nuevo del ArrayList. Pero para leer, por ejemplo, leemos desde el ArrayList.
 		
 		int opciones = 0;
 		
-		// ----------------------
-		// PRUEBA METER DATOS
-		
 		// -------------------------------
+		
 		// OPCIONES DEL PROGRAMA PRINCIPAL			
 		do
 		{			
@@ -51,12 +40,16 @@ public class Tienda {
 				
 				switch (opcion) {
 				case 1:
+					// Para guardar datos nuevos se pedirá añadir una nueva prenda, luego esa prenda se añade al ArrayList y una
+					// vez hayas terminado de añadir prendas al ArrayList, todo el contenido del ArrayList se añade al fichero .dat.
 					TiendaGuardarDatos.guardarDatos(arrayPrenda, rutaBinario);
 					break;
 				case 2:
+					 // Ya que todo se está guardando en el ArrayList, leemos los datos desde ahí.
 					TiendaLeerDatos.leerDatos(arrayPrenda);
 					break;
 				case 3:
+					// Finaliza el programa
 					opciones = 3;
 					break;
 				}
@@ -66,6 +59,7 @@ public class Tienda {
 			}
 		}while(opciones != 3);
 		
+		// Cuando sale del do/while, se acaba el programa.
 		System.out.println("FIN DEL PROGRAMA");
 
 	}
@@ -80,6 +74,7 @@ public class Tienda {
 			opcion = JOptionPane.showOptionDialog(null, "¿Estás seguro de que esta ruta es correcta? Sino, creará un nuevo fichero binario.\n\n" + pideRuta + "\\tienda.dat", "Comprueba la ruta", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE, null, new Object[]{"Sí, es correcto", "No, quiero cambiarlo"}, 1);
 		}while(opcion == 1);
 		
+		// Cuando sale del do/while, significa que el usuario ha introducido la ruta deseada, y devuelve esa ruta.
 		return pideRuta;
 		
 	}

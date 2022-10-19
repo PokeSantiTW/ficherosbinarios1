@@ -15,6 +15,12 @@ public class TiendaLeerDatos {
 		ObjectInputStream ois = new ObjectInputStream(fis);
 		int disponible = 1;
 		
+		// Mientras queden datos por leer en el .dat, "fis.available" será mayor que 0. Cuando no quede nada más por leer, será 0 y saldrá del while.
+		// Se va a leer cada objeto disponible en .dat y se añadirá al ArrayList principal. Este método devuelve ese ArrayList y trabajaremos
+		// a partir de ahora con el ArrayList.
+		
+		// Cuando volvamos a iniciar el programa, este método se ejecuta y lee todo el contenido del .dat para guardarlo en el ArrayList principal,
+		// así no se pierde nada de información al trabajar con el .dat.
 		while((disponible = fis.available()) > 0) {
 			
 			Prenda prendaLeida = (Prenda) ois.readObject();
@@ -32,6 +38,9 @@ public class TiendaLeerDatos {
 	public static void leerDatos(ArrayList<Prenda> arrayPrenda) {
 		
 		int contador = 1;
+		
+		// Ya que trabajamos con el ArrayList que tiene todas las prendas (objetos), no hace falta trabajar con el fichero .dat.
+		// Leemos cada uno de los objetos del ArrayList.
 		
 		if (arrayPrenda.size() == 0) {
 			JOptionPane.showMessageDialog(null, "El archivo está vacío, no se puede mostrar nada.");

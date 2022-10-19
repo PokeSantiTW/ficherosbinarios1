@@ -24,7 +24,8 @@ public class TiendaLeerDatos {
 		while((disponible = fis.available()) > 0) {
 			
 			Prenda prendaLeida = (Prenda) ois.readObject();
-			prenda.add(new Prenda(prendaLeida.getTipo(), prendaLeida.getTalla(), prendaLeida.getPrecio(), prendaLeida.getColor(), prendaLeida.isDisponible()));
+			prenda.add(new Prenda(prendaLeida.getTipo(), prendaLeida.getTalla(), prendaLeida.getPrecio(), prendaLeida.getColor(), 
+					prendaLeida.isDisponible()));
 			
 		}
 		

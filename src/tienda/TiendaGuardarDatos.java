@@ -21,7 +21,9 @@ public class TiendaGuardarDatos {
 			
 			arrayPrenda.add(new Prenda(tipo, talla, precio, color, true));
 			
-			int opcion = JOptionPane.showOptionDialog(null, "¿Deseas añadir una prenda más?", "Añadir otra prenda", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, new Object[]{"Quiero añadir otra prenda", "No quiero añadir más prendas"}, 1);
+			int opcion = JOptionPane.showOptionDialog(null, "¿Deseas añadir una prenda más?", "Añadir otra prenda", JOptionPane.OK_CANCEL_OPTION, 
+					JOptionPane.QUESTION_MESSAGE, null, new Object[]{"Quiero añadir otra prenda", "No quiero añadir más prendas"}, 1);
+			
 			if (opcion == 1) {
 				terminado = 1;
 			}

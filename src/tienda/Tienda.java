@@ -12,7 +12,8 @@ public class Tienda {
 		// -------------------------------
 		// INICIO PROGRAMA
 		System.out.println("---------- BIENVENIDO/A A PRIMARK ----------");
-		String rutaBinario = pedirRuta() + "\\tienda.dat"; // A la ruta de la carpeta, que se ha pedido en el método pedirRuta(), se le añade "tienda.dat". Será el archivo por defecto.
+		String rutaBinario = pedirRuta() + "\\tienda.dat"; // A la ruta de la carpeta, que se ha pedido en el método pedirRuta(), se le añade 
+														   // "tienda.dat". Será el archivo por defecto.
 		
 		
 		ArrayList<Prenda> arrayPrenda = new ArrayList<>();
@@ -71,7 +72,10 @@ public class Tienda {
 		
 		do {
 			pideRuta = JOptionPane.showInputDialog("Introduce la ruta del fichero binario de la tienda.");
-			opcion = JOptionPane.showOptionDialog(null, "¿Estás seguro de que esta ruta es correcta? Sino, creará un nuevo fichero binario.\n\n" + pideRuta + "\\tienda.dat", "Comprueba la ruta", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE, null, new Object[]{"Sí, es correcto", "No, quiero cambiarlo"}, 1);
+			opcion = JOptionPane.showOptionDialog(null, "¿Estás seguro de que esta ruta es correcta? Sino, creará un nuevo fichero binario.\n\n" 
+					+ pideRuta + "\\tienda.dat", "Comprueba la ruta", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE, 
+					null, new Object[]{"Sí, es correcto", "No, quiero cambiarlo"}, 1);
+			
 		}while(opcion == 1);
 		
 		// Cuando sale del do/while, significa que el usuario ha introducido la ruta deseada, y devuelve esa ruta.
